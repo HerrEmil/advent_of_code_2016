@@ -2,13 +2,11 @@ module.exports.turn = function(direction, instruction) {
 	let leftOrRight = instruction.charAt(0);
 
 	if (leftOrRight == 'L') {
-		temp = -direction[0];
-		direction[0] = direction[1];
-		direction[1] = temp;
+		// x = y, y = -x
+		[direction[0], direction[1]] = [direction[1], -direction[0]];
 	} else {
-		temp = direction[0];
-		direction[0] = -direction[1];
-		direction[1] = temp;
+		// x = -y, y = x
+		[direction[0], direction[1]] = [-direction[1], direction[0]];
 	}
 };
 
