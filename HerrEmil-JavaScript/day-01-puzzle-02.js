@@ -9,15 +9,14 @@ function move(position, direction, instruction, visited, repeated) {
 		nextPosition[0] = position[0] + direction[0];
 		nextPosition[1] = position[1] + direction[1];
 
-		for(visitedPosition of visited) {
-			if (visitedPosition[0] == nextPosition[0] &&
-				visitedPosition[1] == nextPosition[1]) {
-				repeated.push([nextPosition[0], nextPosition[1]]);
+		for (visitedPosition of visited) {
+			if (visitedPosition.toString() == nextPosition.toString()) {
+				repeated.push(nextPosition.slice());
 			}
 		}
 		position[0] = nextPosition[0];
 		position[1] = nextPosition[1];
-		visited.push([position[0], position[1]]);
+		visited.push(position.slice());
 	}
 }
 
