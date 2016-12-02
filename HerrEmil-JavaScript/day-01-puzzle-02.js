@@ -9,9 +9,9 @@ function move(position, direction, instruction, visited, repeated) {
 		nextPosition[0] = position[0] + direction[0];
 		nextPosition[1] = position[1] + direction[1];
 
-		for (let j = 0; j < visited.length; j += 1) {
-			if (visited[j][0] == nextPosition[0] &&
-				visited[j][1] == nextPosition[1]) {
+		for(visitedPosition of visited) {
+			if (visitedPosition[0] == nextPosition[0] &&
+				visitedPosition[1] == nextPosition[1]) {
 				repeated.push([nextPosition[0], nextPosition[1]]);
 			}
 		}
@@ -29,9 +29,9 @@ function solve(input) {
 	let repeated = [];
 	let visited = [];
 
-	for (let i = 0; i < instructions.length; i += 1) {
-		day1.turn(direction, instructions[i]);
-		move(position, direction, instructions[i], visited, repeated);
+	for (instruction of instructions) {
+		day1.turn(direction, instruction);
+		move(position, direction, instruction, visited, repeated);
 	}
 
 	return day1.getManhattanDistance(repeated[0]);

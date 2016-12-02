@@ -13,9 +13,9 @@ function solve(input) {
 	let direction = [1, 0];
 	let position = [0, 0];
 
-	for (let i = 0; i < instructions.length; i += 1) {
-		day1.turn(direction, instructions[i]);
-		move(position, direction, instructions[i]);
+	for (instruction of instructions) {
+		day1.turn(direction, instruction);
+		move(position, direction, instruction);
 	}
 
 	return day1.getManhattanDistance(position);
