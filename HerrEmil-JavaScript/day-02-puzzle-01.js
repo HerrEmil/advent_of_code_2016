@@ -42,9 +42,9 @@ function solve(string) {
 	return parseInt(output, 10);
 }
 
-let fs = require('fs');
-let bathroomCode = fs.readFileSync('day-02-bathroom-code.txt').toString();
-let answer = solve(bathroomCode);
-console.log(answer);
+// let fs = require('fs');
+// let bathroomCode = fs.readFileSync('day-02-bathroom-code.txt').toString();
+// let answer = solve(bathroomCode);
+// console.log(answer);
 
 module.exports.solve = solve;
