@@ -5,15 +5,13 @@ const keypad = [
 	'0567890',
 	'00ABC00',
 	'000D000',
-	'0000000'
-]
+	'0000000',
+];
 
 let currentX = 1;
 let currentY = 3;
 
 function updatePosition(instruction) {
-	let newPosition = '0';
-
 	if (instruction == 'U' &&
 		keypad[currentY - 1].charAt(currentX) != 0) {
 		currentY -= 1;
@@ -40,7 +38,7 @@ function navigate(instructions) {
 }
 
 function solve(string) {
-	let lines = string.split('\r\n');
+	let lines = string.split(/\r?\n/);
 	let output = '';
 
 	for (line of lines) {

@@ -29,7 +29,7 @@ function navigate(instructions, position) {
 }
 
 function solve(string) {
-	let lines = string.split('\r\n');
+	let lines = string.split(/\r?\n/);
 	let output = '';
 
 	for (let i = 0; i < lines.length; i += 1) {
