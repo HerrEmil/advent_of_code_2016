@@ -2,6 +2,9 @@
   "scripts": {
     "test": "mocha *spec.js"
   },
+  "dependencies": {
+    "md5": "^2.2.1"
+  },
   "devDependencies": {
     "eslint": "^3.11.1",
     "eslint-config-airbnb": "^13.0.0",
