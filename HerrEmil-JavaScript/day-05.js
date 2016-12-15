@@ -4,50 +4,48 @@ let md5 = require('md5');
 // console.log('Day 05, part 2 solution: ' + getDoor2Password('reyedfim'));
 
 function getDoor1Password(input) {
-	let startTime = Date.now();
 	let i = 0;
 	let password = '';
 	let done = false;
+	let hash = '';
 
-	while ((Date.now() - startTime) < 60000 && !done) {
-		let hash = md5(input + i);
+	while (!done) {
+		hash = md5(input + i);
 
-		if (hash.substring(0, 5) == '00000') {
+		if (hash.substring(0, 5) === '00000') {
 			password += hash.charAt(5);
 			if (password.length > 7) {
 				done = true;
 			}
 		}
 
-		i += 1;
+		++i;
 	}
 
 	return password;
 }
 
 function getDoor2Password(input) {
-	let startTime = Date.now();
 	let i = 0;
 	let pass = ['_', '_', '_', '_', '_', '_', '_', '_'];
 	let done = false;
 	let hash = '';
+	let pos = '';
 
-	while ((Date.now() - startTime) < 600000 && !done) {
+	while (!done) {
 		hash = md5(input + i);
 
-		if (hash.substring(0, 5) == '00000') {
-			let pos = hash.charAt(5);
-			let char = hash.charAt(6);
-			if (pos < 8 && pass[pos] == '_') {
-				pass[pos] = char;
+		if (hash.substring(0, 5) === '00000') {
+			pos = hash.charAt(5);
+			if (pos < 8 && pass[pos] === '_') {
+				pass[pos] = hash.charAt(6);
 			}
-			// console.log(pass);
 			if (pass.every((x) => x != '_')) {
 				done = true;
 			}
 		}
 
-		i += 1;
+		++i;
 	}
 
 	return pass.join('');
