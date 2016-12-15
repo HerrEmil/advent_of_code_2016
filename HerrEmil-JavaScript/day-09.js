@@ -86,14 +86,13 @@ function decompressV2length(remainingCode) {
 			remainingCode = remainingCode.substring(stepsToNextMarker);
 		}
 		if (stepsToNextMarker == 0) {
-			let decrompressed = getNextCompressedString(remainingCode);
+			decrompressedLength += decompressV2length(
+				getNextCompressedString(remainingCode));
 			let markerCharCount = parseInt(nextMarker.substring(
 				nextMarker.indexOf('(') + 1, nextMarker.indexOf('x')));
 			// remove marker from start of remaining Code
-			remainingCode = remainingCode.substring(nextMarker.length);
-			remainingCode = remainingCode.substring(markerCharCount);
-			// Add decompressed to start of remainingCode
-			remainingCode = decrompressed + remainingCode;
+			remainingCode = remainingCode.substring(
+				nextMarker.length + markerCharCount);
 		}
 	}
 }
