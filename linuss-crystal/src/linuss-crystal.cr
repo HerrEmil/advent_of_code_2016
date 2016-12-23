@@ -35,6 +35,18 @@ OptionParser.parse! do |parser|
   parser.on("--15b FILE", "Day 15b INPUT") { |name| puts AoC15.process11 name }
   parser.on("--16 INPUT", "Day 16 INPUT") { |input| puts AoC16.new(input).generate(272) }
   parser.on("--16b INPUT", "Day 16b INPUT") { |input| puts AoC16.new(input).generate(35651584) }
+  parser.on("--17 INPUT", "Day 17 INPUT") { |input| puts AoC17.new(input).search }
+  parser.on("--17b INPUT", "Day 17b INPUT") { |input| puts AoC17.new(input).longest }
+  parser.on("--18 INPUT", "Day 18 INPUT") { |input| puts AoC18.new.safe(input) }
+  parser.on("--18b INPUT", "Day 18b INPUT") { |input| puts AoC18.new.safebig(input) }
+  parser.on("--19 INPUT", "Day 19 INPUT") { |input| puts AoC19.new(input.to_i).steal }
+  parser.on("--19b INPUT", "Day 19b INPUT") { |input| puts AoC19.new(input.to_i).steal_opposite }
+  parser.on("--20 FILE", "Day 20 NAME") { |name| puts AoC20.find name }
+  parser.on("--20b FILE", "Day 20b NAME") { |name| puts AoC20.count name }
+  parser.on("--21 FILE", "Day 21 NAME") { |name| puts AoC21.new("abcdefgh").process(name) }
+  parser.on("--21b FILE", "Day 21b NAME") { |name| puts AoC21.new("fbgdceah").unscramble(name) }
+  parser.on("--22 FILE", "Day 22 NAME") { |name| puts AoC22.count_viable(name) }
+  parser.on("--22b FILE", "Day 22b NAME") { |name| puts AoC22.search(name) }
 
   parser.on("-h", "--help", "Show this help") { puts parser }
 end
